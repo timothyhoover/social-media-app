@@ -8,9 +8,9 @@ import { toErrorMap } from "../utils/toErrorMap";
 import { useLoginMutation } from "../generated/graphql";
 import { useRouter } from "next/router";
 
-const Register: React.FC<{}> = ({}) => {
+const Login: React.FC<{}> = ({}) => {
 	const router = useRouter();
-	const [, login] = useLoginMutation;
+	const [, login] = useLoginMutation();
 	return (
 		<Wrapper variant="small">
 			<Formik
@@ -47,7 +47,7 @@ const Register: React.FC<{}> = ({}) => {
 							colorScheme="teal"
 							color="white"
 						>
-							<Login></Login>
+							Login
 						</Button>
 					</Form>
 				)}
@@ -56,4 +56,4 @@ const Register: React.FC<{}> = ({}) => {
 	);
 };
 
-export default Register;
+export default Login;

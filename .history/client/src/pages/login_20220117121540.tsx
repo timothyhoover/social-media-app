@@ -8,12 +8,12 @@ import { toErrorMap } from "../utils/toErrorMap";
 import { useLoginMutation } from "../generated/graphql";
 import { useRouter } from "next/router";
 
-const Register: React.FC<{}> = ({}) => {
+const Login: React.FC<{}> = ({}) => {
 	const router = useRouter();
-	const [, login] = useLoginMutation;
+	const [, login] = useLoginMutation();
 	return (
 		<Wrapper variant="small">
-			<Formik
+			{/* <Formik
 				initialValues={{ username: "", password: "" }}
 				onSubmit={async (values, { setErrors }) => {
 					const response = await login({ options: values });
@@ -24,7 +24,7 @@ const Register: React.FC<{}> = ({}) => {
 						router.push("/");
 					}
 				}}
-			>
+			> */}
 				{({ isSubmitting }) => (
 					<Form>
 						<InputField

@@ -47,7 +47,7 @@ const Login: React.FC<{}> = ({}) => {
 							colorScheme="teal"
 							color="white"
 						>
-							<Login></Login>
+							Login
 						</Button>
 					</Form>
 				)}

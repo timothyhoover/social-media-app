@@ -10,10 +10,10 @@ import { useRouter } from "next/router";
 
 const Login: React.FC<{}> = ({}) => {
 	const router = useRouter();
-	const [, login] = useLoginMutation;
+	const [, login] = useLoginMutation();
 	return (
 		<Wrapper variant="small">
-			<Formik
+			{/* <Formik
 				initialValues={{ username: "", password: "" }}
 				onSubmit={async (values, { setErrors }) => {
 					const response = await login({ options: values });
@@ -24,34 +24,30 @@ const Login: React.FC<{}> = ({}) => {
 						router.push("/");
 					}
 				}}
-			>
-				{({ isSubmitting }) => (
-					<Form>
+			> */}
+			{({ isSubmitting }) => (
+				<Form>
+					<InputField name="username" placeholder="username" label="Username" />
+					<Box mt={4}>
 						<InputField
-							name="username"
-							placeholder="username"
-							label="Username"
+							name="password"
+							placeholder="password"
+							label="Password"
+							type="password"
 						/>
-						<Box mt={4}>
-							<InputField
-								name="password"
-								placeholder="password"
-								label="Password"
-								type="password"
-							/>
-						</Box>
-						<Button
-							mt={4}
-							type="submit"
-							isLoading={isSubmitting}
-							colorScheme="teal"
-							color="white"
-						>
-							<Login></Login>
-						</Button>
-					</Form>
-				)}
-			</Formik>
+					</Box>
+					<Button
+						mt={4}
+						type="submit"
+						isLoading={isSubmitting}
+						colorScheme="teal"
+						color="white"
+					>
+						<Login></Login>
+					</Button>
+				</Form>
+			)}
+			{/* </Formik> */}
 		</Wrapper>
 	);
 };
