@@ -19,7 +19,7 @@ import session from 'express-session'
 const main = async () => {
 	await createConnection({
 		type: 'postgres',
-		database: 'social-media-app',
+		database: 'social-media',
 		username: 'postgres',
 		password: 'postgres',
 		logging: true,
