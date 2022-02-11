@@ -14,18 +14,22 @@ import connectRedis from 'connect-redis'
 import cors from 'cors'
 import { createConnection } from "typeorm"
 import express from 'express'
+import path from 'path'
 import session from 'express-session'
 
 const main = async () => {
-	await createConnection({
+const conn =	await createConnection({
 		type: 'postgres',
 		database: 'social-media',
 		username: 'postgres',
 		password: 'postgres',
 		logging: true,
 		synchronize: true,
+		migrations: [path.join(__dirname, './migrations/*')],
 		entities: [Post, User]
 	})
+
+await conn.runMigrations()
 
 	const app = express()
 
